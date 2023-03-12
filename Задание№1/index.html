@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задание №1</title>
+</head>
+
+<body>
+    <!--
+        Создать массив с 30 случайными числами от 0 до 99 (вкл)
+        На основе массива, создать таблицу 5х6, заполненную этими числами.
+        Внимание! Таблица должна быть создана при помощи тега table!
+        Если число соответсвует значению 50 и больше, покрасить ячейку таблицы в оранжевый цвет.
+    -->
+    <script>
+        const TOP_VALUE = 99;
+
+        let tbl = document.createElement('table');
+
+        tbl.className = 'table_1';
+        document.body.append(tbl);
+
+        let random_arr = Array.from({ length: TOP_VALUE }, () => Math.floor(Math.random() * TOP_VALUE));
+        let index = 0;
+
+        for (let i = 1; i <= 5; i++) {
+            let tr = document.createElement('tr');
+
+            for (let j = 1; j <= 6; j++) {
+                let td = document.createElement('td');
+                td.innerText = random_arr[index];
+                if (random_arr[index++] >= 50) td.bgColor = "#ffa500";
+                tr.append(td);
+            };
+
+            tbl.append(tr);
+        }
+    </script>
+
+</body>
+
+</html>
